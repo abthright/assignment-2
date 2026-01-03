@@ -1,15 +1,26 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from "@hono/node-server";
+import app from "@/src/modules/index";
+import { prisma } from "./utils/prisma";
 
-const app = new Hono()
+const server = serve(
+  {
+    fetch: app.fetch,
+    port: 3000,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+  },
+);
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const shutdown = async () => {
+  try {
+    server.close();
+    await prisma.$disconnect();
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+// graceful shutdown
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);

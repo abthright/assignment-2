@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+enum BookingStatus {
+  PENDING
+  PAID
+}
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  name     String
+  bookings Booking[]
+}
+
+model Event {
+  id      Int      @id @default(autoincrement())
+  name    String
+  desc    String?
+  tickets Ticket[]
+}
+
+model Booking {
+  id      Int                 @id @default(autoincrement())
+  status  BookingStatus       @default(PENDING)
+  tickets BookingTicketJoin[]
+  owner   User                @relation(fields: [ownerId], references: [id])
+  ownerId Int
+}
+
+model Ticket {
+  id           Int                 @id @default(autoincrement())
+  bookings     BookingTicketJoin[]
+  event        Event               @relation(fields: [eventId], references: [id])
+  name         String
+  desc         String?
+  type         String?
+  price        Int?
+  availability Int
+  eventId      Int
+}
+
+model BookingTicketJoin {
+  bookingId Int
+  ticketId  Int
+  quantity  Int
+  price     Int
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+  ticket  Ticket  @relation(fields: [ticketId], references: [id])
+
+  @@id([bookingId, ticketId])
+}
