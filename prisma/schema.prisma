@@ -4,6 +4,7 @@
 enum BookingStatus {
   PENDING
   PAID
+  CANCELLED
 }
 
 generator client {

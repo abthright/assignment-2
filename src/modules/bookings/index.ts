@@ -2,7 +2,6 @@ import { Hono } from "hono";
 import { prisma } from "@/src/utils/prisma";
 import { CreateBookingSchema } from "@/src/utils/zodSchemas";
 import { zValidator } from "@hono/zod-validator";
-import { create } from "node:domain";
 
 const app = new Hono();
 
@@ -25,9 +24,22 @@ app
     // many to many post booking
     const booking = await prisma.booking.create({
       data: {
-        status: data.status,
-        ownerId: data.ownerId,
-        tickets: {},
+        owner: {
+          connect: {
+            id: data.ownerId,
+          },
+        },
+        tickets: {
+          create: data.tickets.map((t) => ({
+            ticket: {
+              connect: {
+                id: t.ticketId,
+              },
+            },
+            quantity: t.quantity,
+            price: 0, //TODO : dynamic price
+          })),
+        },
       },
     });
     console.log(`created booking: ${booking.id}`);
@@ -40,20 +52,23 @@ app
       where: {
         id: Number(id),
       },
-      data: data,
+      data: {},
     });
     console.log(`updated booking: ${updateBooking.id}`);
     return c.json({ message: `successfully updated to ${updateBooking.id}` });
   })
   .delete("/:id", async (c) => {
     const id = c.req.param("id");
-    const deletedBooking = await prisma.booking.delete({
+    const updateBooking = await prisma.booking.update({
       where: {
         id: Number(id),
       },
+      data: {
+        status: "CANCELLED",
+      },
     });
-    console.log(`deleted event: ${deletedBooking.id}`);
-    return c.json({ message: `successfully deleted ${deletedBooking.id}` });
+    console.log(`updated booking: ${updateBooking.id}`);
+    return c.json({ message: `successfully updated to ${updateBooking.id}` });
   });
 
 export default app;

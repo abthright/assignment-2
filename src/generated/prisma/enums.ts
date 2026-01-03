@@ -11,7 +11,8 @@
 
 export const BookingStatus = {
   PENDING: 'PENDING',
-  PAID: 'PAID'
+  PAID: 'PAID',
+  CANCELLED: 'CANCELLED'
 } as const
 
 export type BookingStatus = (typeof BookingStatus)[keyof typeof BookingStatus]

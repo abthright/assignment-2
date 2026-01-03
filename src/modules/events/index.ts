@@ -41,7 +41,7 @@ app
   })
   .delete("/:id", async (c) => {
     const id = c.req.param("id");
-    // Deleting event shouldn't be allowed if booking exist
+    // TODO : Deleting event shouldn't be allowed if booking exist
     const deletedEvent = await prisma.event.delete({
       where: {
         id: Number(id),

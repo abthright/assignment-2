@@ -245,7 +245,7 @@ export type TicketWhereInput = {
   availability?: Prisma.IntFilter<"Ticket"> | number
   eventId?: Prisma.IntFilter<"Ticket"> | number
   bookings?: Prisma.BookingTicketJoinListRelationFilter
-  events?: Prisma.XOR<Prisma.EventScalarRelationFilter, Prisma.EventWhereInput>
+  event?: Prisma.XOR<Prisma.EventScalarRelationFilter, Prisma.EventWhereInput>
 }
 
 export type TicketOrderByWithRelationInput = {
@@ -257,7 +257,7 @@ export type TicketOrderByWithRelationInput = {
   availability?: Prisma.SortOrder
   eventId?: Prisma.SortOrder
   bookings?: Prisma.BookingTicketJoinOrderByRelationAggregateInput
-  events?: Prisma.EventOrderByWithRelationInput
+  event?: Prisma.EventOrderByWithRelationInput
 }
 
 export type TicketWhereUniqueInput = Prisma.AtLeast<{
@@ -272,7 +272,7 @@ export type TicketWhereUniqueInput = Prisma.AtLeast<{
   availability?: Prisma.IntFilter<"Ticket"> | number
   eventId?: Prisma.IntFilter<"Ticket"> | number
   bookings?: Prisma.BookingTicketJoinListRelationFilter
-  events?: Prisma.XOR<Prisma.EventScalarRelationFilter, Prisma.EventWhereInput>
+  event?: Prisma.XOR<Prisma.EventScalarRelationFilter, Prisma.EventWhereInput>
 }, "id">
 
 export type TicketOrderByWithAggregationInput = {
@@ -310,7 +310,7 @@ export type TicketCreateInput = {
   price?: number | null
   availability: number
   bookings?: Prisma.BookingTicketJoinCreateNestedManyWithoutTicketInput
-  events: Prisma.EventCreateNestedOneWithoutTicketsInput
+  event: Prisma.EventCreateNestedOneWithoutTicketsInput
 }
 
 export type TicketUncheckedCreateInput = {
@@ -331,7 +331,7 @@ export type TicketUpdateInput = {
   price?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availability?: Prisma.IntFieldUpdateOperationsInput | number
   bookings?: Prisma.BookingTicketJoinUpdateManyWithoutTicketNestedInput
-  events?: Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput
+  event?: Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput
 }
 
 export type TicketUncheckedUpdateInput = {
@@ -432,45 +432,45 @@ export type TicketScalarRelationFilter = {
   isNot?: Prisma.TicketWhereInput
 }
 
-export type TicketCreateNestedManyWithoutEventsInput = {
-  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput> | Prisma.TicketCreateWithoutEventsInput[] | Prisma.TicketUncheckedCreateWithoutEventsInput[]
-  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventsInput | Prisma.TicketCreateOrConnectWithoutEventsInput[]
-  createMany?: Prisma.TicketCreateManyEventsInputEnvelope
+export type TicketCreateNestedManyWithoutEventInput = {
+  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput> | Prisma.TicketCreateWithoutEventInput[] | Prisma.TicketUncheckedCreateWithoutEventInput[]
+  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventInput | Prisma.TicketCreateOrConnectWithoutEventInput[]
+  createMany?: Prisma.TicketCreateManyEventInputEnvelope
   connect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
 }
 
-export type TicketUncheckedCreateNestedManyWithoutEventsInput = {
-  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput> | Prisma.TicketCreateWithoutEventsInput[] | Prisma.TicketUncheckedCreateWithoutEventsInput[]
-  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventsInput | Prisma.TicketCreateOrConnectWithoutEventsInput[]
-  createMany?: Prisma.TicketCreateManyEventsInputEnvelope
+export type TicketUncheckedCreateNestedManyWithoutEventInput = {
+  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput> | Prisma.TicketCreateWithoutEventInput[] | Prisma.TicketUncheckedCreateWithoutEventInput[]
+  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventInput | Prisma.TicketCreateOrConnectWithoutEventInput[]
+  createMany?: Prisma.TicketCreateManyEventInputEnvelope
   connect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
 }
 
-export type TicketUpdateManyWithoutEventsNestedInput = {
-  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput> | Prisma.TicketCreateWithoutEventsInput[] | Prisma.TicketUncheckedCreateWithoutEventsInput[]
-  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventsInput | Prisma.TicketCreateOrConnectWithoutEventsInput[]
-  upsert?: Prisma.TicketUpsertWithWhereUniqueWithoutEventsInput | Prisma.TicketUpsertWithWhereUniqueWithoutEventsInput[]
-  createMany?: Prisma.TicketCreateManyEventsInputEnvelope
+export type TicketUpdateManyWithoutEventNestedInput = {
+  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput> | Prisma.TicketCreateWithoutEventInput[] | Prisma.TicketUncheckedCreateWithoutEventInput[]
+  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventInput | Prisma.TicketCreateOrConnectWithoutEventInput[]
+  upsert?: Prisma.TicketUpsertWithWhereUniqueWithoutEventInput | Prisma.TicketUpsertWithWhereUniqueWithoutEventInput[]
+  createMany?: Prisma.TicketCreateManyEventInputEnvelope
   set?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   disconnect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   delete?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   connect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
-  update?: Prisma.TicketUpdateWithWhereUniqueWithoutEventsInput | Prisma.TicketUpdateWithWhereUniqueWithoutEventsInput[]
-  updateMany?: Prisma.TicketUpdateManyWithWhereWithoutEventsInput | Prisma.TicketUpdateManyWithWhereWithoutEventsInput[]
+  update?: Prisma.TicketUpdateWithWhereUniqueWithoutEventInput | Prisma.TicketUpdateWithWhereUniqueWithoutEventInput[]
+  updateMany?: Prisma.TicketUpdateManyWithWhereWithoutEventInput | Prisma.TicketUpdateManyWithWhereWithoutEventInput[]
   deleteMany?: Prisma.TicketScalarWhereInput | Prisma.TicketScalarWhereInput[]
 }
 
-export type TicketUncheckedUpdateManyWithoutEventsNestedInput = {
-  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput> | Prisma.TicketCreateWithoutEventsInput[] | Prisma.TicketUncheckedCreateWithoutEventsInput[]
-  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventsInput | Prisma.TicketCreateOrConnectWithoutEventsInput[]
-  upsert?: Prisma.TicketUpsertWithWhereUniqueWithoutEventsInput | Prisma.TicketUpsertWithWhereUniqueWithoutEventsInput[]
-  createMany?: Prisma.TicketCreateManyEventsInputEnvelope
+export type TicketUncheckedUpdateManyWithoutEventNestedInput = {
+  create?: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput> | Prisma.TicketCreateWithoutEventInput[] | Prisma.TicketUncheckedCreateWithoutEventInput[]
+  connectOrCreate?: Prisma.TicketCreateOrConnectWithoutEventInput | Prisma.TicketCreateOrConnectWithoutEventInput[]
+  upsert?: Prisma.TicketUpsertWithWhereUniqueWithoutEventInput | Prisma.TicketUpsertWithWhereUniqueWithoutEventInput[]
+  createMany?: Prisma.TicketCreateManyEventInputEnvelope
   set?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   disconnect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   delete?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
   connect?: Prisma.TicketWhereUniqueInput | Prisma.TicketWhereUniqueInput[]
-  update?: Prisma.TicketUpdateWithWhereUniqueWithoutEventsInput | Prisma.TicketUpdateWithWhereUniqueWithoutEventsInput[]
-  updateMany?: Prisma.TicketUpdateManyWithWhereWithoutEventsInput | Prisma.TicketUpdateManyWithWhereWithoutEventsInput[]
+  update?: Prisma.TicketUpdateWithWhereUniqueWithoutEventInput | Prisma.TicketUpdateWithWhereUniqueWithoutEventInput[]
+  updateMany?: Prisma.TicketUpdateManyWithWhereWithoutEventInput | Prisma.TicketUpdateManyWithWhereWithoutEventInput[]
   deleteMany?: Prisma.TicketScalarWhereInput | Prisma.TicketScalarWhereInput[]
 }
 
@@ -496,7 +496,7 @@ export type TicketUpdateOneRequiredWithoutBookingsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TicketUpdateToOneWithWhereWithoutBookingsInput, Prisma.TicketUpdateWithoutBookingsInput>, Prisma.TicketUncheckedUpdateWithoutBookingsInput>
 }
 
-export type TicketCreateWithoutEventsInput = {
+export type TicketCreateWithoutEventInput = {
   name: string
   desc?: string | null
   type?: string | null
@@ -505,7 +505,7 @@ export type TicketCreateWithoutEventsInput = {
   bookings?: Prisma.BookingTicketJoinCreateNestedManyWithoutTicketInput
 }
 
-export type TicketUncheckedCreateWithoutEventsInput = {
+export type TicketUncheckedCreateWithoutEventInput = {
   id?: number
   name: string
   desc?: string | null
@@ -515,29 +515,29 @@ export type TicketUncheckedCreateWithoutEventsInput = {
   bookings?: Prisma.BookingTicketJoinUncheckedCreateNestedManyWithoutTicketInput
 }
 
-export type TicketCreateOrConnectWithoutEventsInput = {
+export type TicketCreateOrConnectWithoutEventInput = {
   where: Prisma.TicketWhereUniqueInput
-  create: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput>
+  create: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput>
 }
 
-export type TicketCreateManyEventsInputEnvelope = {
-  data: Prisma.TicketCreateManyEventsInput | Prisma.TicketCreateManyEventsInput[]
+export type TicketCreateManyEventInputEnvelope = {
+  data: Prisma.TicketCreateManyEventInput | Prisma.TicketCreateManyEventInput[]
 }
 
-export type TicketUpsertWithWhereUniqueWithoutEventsInput = {
+export type TicketUpsertWithWhereUniqueWithoutEventInput = {
   where: Prisma.TicketWhereUniqueInput
-  update: Prisma.XOR<Prisma.TicketUpdateWithoutEventsInput, Prisma.TicketUncheckedUpdateWithoutEventsInput>
-  create: Prisma.XOR<Prisma.TicketCreateWithoutEventsInput, Prisma.TicketUncheckedCreateWithoutEventsInput>
+  update: Prisma.XOR<Prisma.TicketUpdateWithoutEventInput, Prisma.TicketUncheckedUpdateWithoutEventInput>
+  create: Prisma.XOR<Prisma.TicketCreateWithoutEventInput, Prisma.TicketUncheckedCreateWithoutEventInput>
 }
 
-export type TicketUpdateWithWhereUniqueWithoutEventsInput = {
+export type TicketUpdateWithWhereUniqueWithoutEventInput = {
   where: Prisma.TicketWhereUniqueInput
-  data: Prisma.XOR<Prisma.TicketUpdateWithoutEventsInput, Prisma.TicketUncheckedUpdateWithoutEventsInput>
+  data: Prisma.XOR<Prisma.TicketUpdateWithoutEventInput, Prisma.TicketUncheckedUpdateWithoutEventInput>
 }
 
-export type TicketUpdateManyWithWhereWithoutEventsInput = {
+export type TicketUpdateManyWithWhereWithoutEventInput = {
   where: Prisma.TicketScalarWhereInput
-  data: Prisma.XOR<Prisma.TicketUpdateManyMutationInput, Prisma.TicketUncheckedUpdateManyWithoutEventsInput>
+  data: Prisma.XOR<Prisma.TicketUpdateManyMutationInput, Prisma.TicketUncheckedUpdateManyWithoutEventInput>
 }
 
 export type TicketScalarWhereInput = {
@@ -559,7 +559,7 @@ export type TicketCreateWithoutBookingsInput = {
   type?: string | null
   price?: number | null
   availability: number
-  events: Prisma.EventCreateNestedOneWithoutTicketsInput
+  event: Prisma.EventCreateNestedOneWithoutTicketsInput
 }
 
 export type TicketUncheckedCreateWithoutBookingsInput = {
@@ -594,7 +594,7 @@ export type TicketUpdateWithoutBookingsInput = {
   type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   price?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availability?: Prisma.IntFieldUpdateOperationsInput | number
-  events?: Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput
+  event?: Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput
 }
 
 export type TicketUncheckedUpdateWithoutBookingsInput = {
@@ -607,7 +607,7 @@ export type TicketUncheckedUpdateWithoutBookingsInput = {
   eventId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type TicketCreateManyEventsInput = {
+export type TicketCreateManyEventInput = {
   id?: number
   name: string
   desc?: string | null
@@ -616,7 +616,7 @@ export type TicketCreateManyEventsInput = {
   availability: number
 }
 
-export type TicketUpdateWithoutEventsInput = {
+export type TicketUpdateWithoutEventInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -625,7 +625,7 @@ export type TicketUpdateWithoutEventsInput = {
   bookings?: Prisma.BookingTicketJoinUpdateManyWithoutTicketNestedInput
 }
 
-export type TicketUncheckedUpdateWithoutEventsInput = {
+export type TicketUncheckedUpdateWithoutEventInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -635,7 +635,7 @@ export type TicketUncheckedUpdateWithoutEventsInput = {
   bookings?: Prisma.BookingTicketJoinUncheckedUpdateManyWithoutTicketNestedInput
 }
 
-export type TicketUncheckedUpdateManyWithoutEventsInput = {
+export type TicketUncheckedUpdateManyWithoutEventInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -684,7 +684,7 @@ export type TicketSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   availability?: boolean
   eventId?: boolean
   bookings?: boolean | Prisma.Ticket$bookingsArgs<ExtArgs>
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.TicketCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ticket"]>
 
@@ -696,7 +696,7 @@ export type TicketSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   price?: boolean
   availability?: boolean
   eventId?: boolean
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ticket"]>
 
 export type TicketSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -707,7 +707,7 @@ export type TicketSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   price?: boolean
   availability?: boolean
   eventId?: boolean
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ticket"]>
 
 export type TicketSelectScalar = {
@@ -723,21 +723,21 @@ export type TicketSelectScalar = {
 export type TicketOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "desc" | "type" | "price" | "availability" | "eventId", ExtArgs["result"]["ticket"]>
 export type TicketInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   bookings?: boolean | Prisma.Ticket$bookingsArgs<ExtArgs>
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.TicketCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TicketIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
 }
 export type TicketIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  events?: boolean | Prisma.EventDefaultArgs<ExtArgs>
+  event?: boolean | Prisma.EventDefaultArgs<ExtArgs>
 }
 
 export type $TicketPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Ticket"
   objects: {
     bookings: Prisma.$BookingTicketJoinPayload<ExtArgs>[]
-    events: Prisma.$EventPayload<ExtArgs>
+    event: Prisma.$EventPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1142,7 +1142,7 @@ readonly fields: TicketFieldRefs;
 export interface Prisma__TicketClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   bookings<T extends Prisma.Ticket$bookingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ticket$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookingTicketJoinPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  events<T extends Prisma.EventDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EventDefaultArgs<ExtArgs>>): Prisma.Prisma__EventClient<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  event<T extends Prisma.EventDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EventDefaultArgs<ExtArgs>>): Prisma.Prisma__EventClient<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

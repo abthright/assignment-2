@@ -243,27 +243,27 @@ export type EventScalarWhereWithAggregatesInput = {
 export type EventCreateInput = {
   name: string
   desc?: string | null
-  tickets?: Prisma.TicketCreateNestedManyWithoutEventsInput
+  tickets?: Prisma.TicketCreateNestedManyWithoutEventInput
 }
 
 export type EventUncheckedCreateInput = {
   id?: number
   name: string
   desc?: string | null
-  tickets?: Prisma.TicketUncheckedCreateNestedManyWithoutEventsInput
+  tickets?: Prisma.TicketUncheckedCreateNestedManyWithoutEventInput
 }
 
 export type EventUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tickets?: Prisma.TicketUpdateManyWithoutEventsNestedInput
+  tickets?: Prisma.TicketUpdateManyWithoutEventNestedInput
 }
 
 export type EventUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tickets?: Prisma.TicketUncheckedUpdateManyWithoutEventsNestedInput
+  tickets?: Prisma.TicketUncheckedUpdateManyWithoutEventNestedInput
 }
 
 export type EventCreateManyInput = {

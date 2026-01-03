@@ -1,7 +1,7 @@
 import * as z from "zod";
 import type { BookingStatus } from "../generated/prisma/enums";
 
-const bookingStatus = ["PENDING", "PAID"] as const;
+const bookingStatus = ["PENDING", "PAID", "CANCELLED"] as const;
 const bookingStatusEnum = z.enum(bookingStatus);
 
 // User Schema
@@ -15,21 +15,27 @@ const CreateEventSchema = z.object({
   desc: z.string(),
 });
 
-// Booking Schema
-const CreateBookingSchema = z.object({
-  status: bookingStatusEnum.default("PAID"),
-  tickets: z.array(z.number()).min(1),
-  ownerId: z.number().min(1),
-});
-
 // Ticket Schema
 const CreateTicketSchema = z.object({
   name: z.string(),
   desc: z.string().nullable(),
   type: z.string().nullable(),
-  price: z.number().nullable(),
-  availability: z.number().default(0),
-  eventId: z.number().min(1),
+  price: z.number().positive().nullable(),
+  availability: z.number().positive().default(0),
+  eventId: z.number().min(1).positive(),
+});
+
+// Booking Schema
+
+const bookingTicketInputSchema = z.object({
+  ticketId: z.number().int().positive(),
+  quantity: z.number().int().positive(),
+});
+
+const CreateBookingSchema = z.object({
+  status: bookingStatusEnum.default("PAID"),
+  tickets: z.array(bookingTicketInputSchema).min(1),
+  ownerId: z.number().positive().min(1),
 });
 
 export {
