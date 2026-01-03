@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import users from "@/src/modules/users/index";
 import bookings from "@/src/modules/bookings/index";
 import events from "@/src/modules/events/index";
-import tickets from "@/src/modules/users/index";
+import tickets from "@/src/modules/tickets/index";
 
 const app = new Hono().basePath("/api");
 
