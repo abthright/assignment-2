@@ -1,9 +1,12 @@
 import { Hono } from "hono";
-import { prisma } from "@/src/utils/prisma";
+import { prisma } from "@/src/server/utils/prisma";
 import * as z from "zod";
 import { zValidator } from "@hono/zod-validator";
-import { CreateUserSchema, UpdateUserSchema } from "@/src/utils/zodSchemas";
-import { validationGuard } from "@/src/utils/exceptions";
+import {
+  CreateUserSchema,
+  UpdateUserSchema,
+} from "@/src/server/utils/zodSchemas";
+import { validationGuard } from "@/src/server/utils/exceptions";
 
 const app = new Hono();
 

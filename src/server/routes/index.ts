@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import users from "@/src/routes/users/index";
-import bookings from "@/src/routes/bookings/index";
-import events from "@/src/routes/events/index";
-import tickets from "@/src/routes/tickets/index";
+import users from "@/src/server/routes/users/index";
+import bookings from "@/src/server/routes/bookings/index";
+import events from "@/src/server/routes/events/index";
+import tickets from "@/src/server/routes/tickets/index";
 
 const app = new Hono();
 // .basePath("/api");

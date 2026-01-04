@@ -3,11 +3,11 @@ import { serveStatic } from "@hono/node-server/serve-static";
 
 const app = new Hono();
 
-app.use("/static/*", serveStatic({ root: "./src/dist" }));
+app.use("/static/*", serveStatic({ root: "./dist" }));
 app.get(
   "*",
   serveStatic({
-    path: "./src/dist/index.html",
+    path: "./dist/index.html",
   }),
 );
 

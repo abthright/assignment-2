@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { prisma } from "@/src/utils/prisma";
-import { CreateBookingSchema } from "@/src/utils/zodSchemas";
+import { prisma } from "@/src/server/utils/prisma";
+import { CreateBookingSchema } from "@/src/server/utils/zodSchemas";
 import { zValidator } from "@hono/zod-validator";
-import { validationGuard } from "@/src/utils/exceptions";
+import { validationGuard } from "@/src/server/utils/exceptions";
 
 const app = new Hono();
 
