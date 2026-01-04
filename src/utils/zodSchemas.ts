@@ -8,6 +8,9 @@ const bookingStatusEnum = z.enum(bookingStatus);
 const CreateUserSchema = z.object({
   name: z.string().min(1),
 });
+const UpdateUserSchema = z.object({
+  name: z.string().optional(),
+});
 
 // Event Schema
 const CreateEventSchema = z.object({
@@ -25,8 +28,16 @@ const CreateTicketSchema = z.object({
   eventId: z.number().min(1).positive(),
 });
 
-// Booking Schema
+const UpdateTicketSchema = z.object({
+  name: z.string().optional(),
+  desc: z.string().nullable().optional(),
+  type: z.string().nullable().optional(),
+  price: z.number().positive().nullable().optional(),
+  availability: z.number().positive().default(0).optional(),
+  eventId: z.number().min(1).positive().optional(),
+});
 
+// Booking Schema
 const bookingTicketInputSchema = z.object({
   ticketId: z.number().int().positive(),
   quantity: z.number().int().positive(),
@@ -43,6 +54,8 @@ export {
   CreateEventSchema,
   CreateBookingSchema,
   CreateTicketSchema,
+  UpdateUserSchema,
+  UpdateTicketSchema,
 };
 
 export type CreateUserType = z.infer<typeof CreateUserSchema>;

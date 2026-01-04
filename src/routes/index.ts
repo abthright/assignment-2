@@ -1,10 +1,11 @@
 import { Hono } from "hono";
-import users from "@/src/modules/users/index";
-import bookings from "@/src/modules/bookings/index";
-import events from "@/src/modules/events/index";
-import tickets from "@/src/modules/tickets/index";
+import users from "@/src/routes/users/index";
+import bookings from "@/src/routes/bookings/index";
+import events from "@/src/routes/events/index";
+import tickets from "@/src/routes/tickets/index";
 
-const app = new Hono().basePath("/api");
+const app = new Hono();
+// .basePath("/api");
 
 app.get("/", (c) => {
   return c.text("sup");

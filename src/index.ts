@@ -1,6 +1,13 @@
 import { serve } from "@hono/node-server";
-import app from "@/src/modules/index";
+import api from "@/src/routes/index";
+import frontend from "@/src/features/index";
 import { prisma } from "./utils/prisma";
+import { Hono } from "hono";
+import { serveStatic } from "@hono/node-server/serve-static";
+
+const app = new Hono();
+
+app.route("/", frontend).route("/api", api);
 
 const server = serve(
   {
