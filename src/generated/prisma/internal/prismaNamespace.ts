@@ -825,7 +825,9 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const EventScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  desc: 'desc'
+  desc: 'desc',
+  dateStart: 'dateStart',
+  dateEnd: 'dateEnd'
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
@@ -833,7 +835,9 @@ export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof Ev
 
 export const BookingScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   status: 'status',
+  updatedAt: 'updatedAt',
   ownerId: 'ownerId'
 } as const
 
@@ -896,6 +900,13 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'String'
  */
 export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 

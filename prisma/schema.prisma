@@ -23,18 +23,22 @@ model User {
 }
 
 model Event {
-  id      Int      @id @default(autoincrement())
-  name    String
-  desc    String?
-  tickets Ticket[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  desc      String?
+  dateStart DateTime?
+  dateEnd   DateTime?
+  tickets   Ticket[]
 }
 
 model Booking {
-  id      Int                 @id @default(autoincrement())
-  status  BookingStatus       @default(PENDING)
-  tickets BookingTicketJoin[]
-  owner   User                @relation(fields: [ownerId], references: [id])
-  ownerId Int
+  id        Int                 @id @default(autoincrement())
+  createdAt DateTime            @default(now())
+  status    BookingStatus       @default(PENDING)
+  updatedAt DateTime            @default(now()) @updatedAt
+  tickets   BookingTicketJoin[]
+  owner     User                @relation(fields: [ownerId], references: [id])
+  ownerId   Int
 }
 
 model Ticket {

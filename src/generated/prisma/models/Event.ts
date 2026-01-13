@@ -38,18 +38,24 @@ export type EventMinAggregateOutputType = {
   id: number | null
   name: string | null
   desc: string | null
+  dateStart: Date | null
+  dateEnd: Date | null
 }
 
 export type EventMaxAggregateOutputType = {
   id: number | null
   name: string | null
   desc: string | null
+  dateStart: Date | null
+  dateEnd: Date | null
 }
 
 export type EventCountAggregateOutputType = {
   id: number
   name: number
   desc: number
+  dateStart: number
+  dateEnd: number
   _all: number
 }
 
@@ -66,18 +72,24 @@ export type EventMinAggregateInputType = {
   id?: true
   name?: true
   desc?: true
+  dateStart?: true
+  dateEnd?: true
 }
 
 export type EventMaxAggregateInputType = {
   id?: true
   name?: true
   desc?: true
+  dateStart?: true
+  dateEnd?: true
 }
 
 export type EventCountAggregateInputType = {
   id?: true
   name?: true
   desc?: true
+  dateStart?: true
+  dateEnd?: true
   _all?: true
 }
 
@@ -171,6 +183,8 @@ export type EventGroupByOutputType = {
   id: number
   name: string
   desc: string | null
+  dateStart: Date | null
+  dateEnd: Date | null
   _count: EventCountAggregateOutputType | null
   _avg: EventAvgAggregateOutputType | null
   _sum: EventSumAggregateOutputType | null
@@ -200,6 +214,8 @@ export type EventWhereInput = {
   id?: Prisma.IntFilter<"Event"> | number
   name?: Prisma.StringFilter<"Event"> | string
   desc?: Prisma.StringNullableFilter<"Event"> | string | null
+  dateStart?: Prisma.DateTimeNullableFilter<"Event"> | Date | string | null
+  dateEnd?: Prisma.DateTimeNullableFilter<"Event"> | Date | string | null
   tickets?: Prisma.TicketListRelationFilter
 }
 
@@ -207,6 +223,8 @@ export type EventOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   desc?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateEnd?: Prisma.SortOrderInput | Prisma.SortOrder
   tickets?: Prisma.TicketOrderByRelationAggregateInput
 }
 
@@ -217,6 +235,8 @@ export type EventWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.EventWhereInput | Prisma.EventWhereInput[]
   name?: Prisma.StringFilter<"Event"> | string
   desc?: Prisma.StringNullableFilter<"Event"> | string | null
+  dateStart?: Prisma.DateTimeNullableFilter<"Event"> | Date | string | null
+  dateEnd?: Prisma.DateTimeNullableFilter<"Event"> | Date | string | null
   tickets?: Prisma.TicketListRelationFilter
 }, "id">
 
@@ -224,6 +244,8 @@ export type EventOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   desc?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateEnd?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.EventCountOrderByAggregateInput
   _avg?: Prisma.EventAvgOrderByAggregateInput
   _max?: Prisma.EventMaxOrderByAggregateInput
@@ -238,11 +260,15 @@ export type EventScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Event"> | number
   name?: Prisma.StringWithAggregatesFilter<"Event"> | string
   desc?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
+  dateStart?: Prisma.DateTimeNullableWithAggregatesFilter<"Event"> | Date | string | null
+  dateEnd?: Prisma.DateTimeNullableWithAggregatesFilter<"Event"> | Date | string | null
 }
 
 export type EventCreateInput = {
   name: string
   desc?: string | null
+  dateStart?: Date | string | null
+  dateEnd?: Date | string | null
   tickets?: Prisma.TicketCreateNestedManyWithoutEventInput
 }
 
@@ -250,12 +276,16 @@ export type EventUncheckedCreateInput = {
   id?: number
   name: string
   desc?: string | null
+  dateStart?: Date | string | null
+  dateEnd?: Date | string | null
   tickets?: Prisma.TicketUncheckedCreateNestedManyWithoutEventInput
 }
 
 export type EventUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tickets?: Prisma.TicketUpdateManyWithoutEventNestedInput
 }
 
@@ -263,6 +293,8 @@ export type EventUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tickets?: Prisma.TicketUncheckedUpdateManyWithoutEventNestedInput
 }
 
@@ -270,23 +302,31 @@ export type EventCreateManyInput = {
   id?: number
   name: string
   desc?: string | null
+  dateStart?: Date | string | null
+  dateEnd?: Date | string | null
 }
 
 export type EventUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type EventUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type EventCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   desc?: Prisma.SortOrder
+  dateStart?: Prisma.SortOrder
+  dateEnd?: Prisma.SortOrder
 }
 
 export type EventAvgOrderByAggregateInput = {
@@ -297,12 +337,16 @@ export type EventMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   desc?: Prisma.SortOrder
+  dateStart?: Prisma.SortOrder
+  dateEnd?: Prisma.SortOrder
 }
 
 export type EventMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   desc?: Prisma.SortOrder
+  dateStart?: Prisma.SortOrder
+  dateEnd?: Prisma.SortOrder
 }
 
 export type EventSumOrderByAggregateInput = {
@@ -316,6 +360,10 @@ export type EventScalarRelationFilter = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
 }
 
 export type EventCreateNestedOneWithoutTicketsInput = {
@@ -335,12 +383,16 @@ export type EventUpdateOneRequiredWithoutTicketsNestedInput = {
 export type EventCreateWithoutTicketsInput = {
   name: string
   desc?: string | null
+  dateStart?: Date | string | null
+  dateEnd?: Date | string | null
 }
 
 export type EventUncheckedCreateWithoutTicketsInput = {
   id?: number
   name: string
   desc?: string | null
+  dateStart?: Date | string | null
+  dateEnd?: Date | string | null
 }
 
 export type EventCreateOrConnectWithoutTicketsInput = {
@@ -362,12 +414,16 @@ export type EventUpdateToOneWithWhereWithoutTicketsInput = {
 export type EventUpdateWithoutTicketsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type EventUncheckedUpdateWithoutTicketsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dateEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -405,6 +461,8 @@ export type EventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   name?: boolean
   desc?: boolean
+  dateStart?: boolean
+  dateEnd?: boolean
   tickets?: boolean | Prisma.Event$ticketsArgs<ExtArgs>
   _count?: boolean | Prisma.EventCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
@@ -413,21 +471,27 @@ export type EventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   name?: boolean
   desc?: boolean
+  dateStart?: boolean
+  dateEnd?: boolean
 }, ExtArgs["result"]["event"]>
 
 export type EventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   desc?: boolean
+  dateStart?: boolean
+  dateEnd?: boolean
 }, ExtArgs["result"]["event"]>
 
 export type EventSelectScalar = {
   id?: boolean
   name?: boolean
   desc?: boolean
+  dateStart?: boolean
+  dateEnd?: boolean
 }
 
-export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "desc", ExtArgs["result"]["event"]>
+export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "desc" | "dateStart" | "dateEnd", ExtArgs["result"]["event"]>
 export type EventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tickets?: boolean | Prisma.Event$ticketsArgs<ExtArgs>
   _count?: boolean | Prisma.EventCountOutputTypeDefaultArgs<ExtArgs>
@@ -444,6 +508,8 @@ export type $EventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     name: string
     desc: string | null
+    dateStart: Date | null
+    dateEnd: Date | null
   }, ExtArgs["result"]["event"]>
   composites: {}
 }
@@ -871,6 +937,8 @@ export interface EventFieldRefs {
   readonly id: Prisma.FieldRef<"Event", 'Int'>
   readonly name: Prisma.FieldRef<"Event", 'String'>
   readonly desc: Prisma.FieldRef<"Event", 'String'>
+  readonly dateStart: Prisma.FieldRef<"Event", 'DateTime'>
+  readonly dateEnd: Prisma.FieldRef<"Event", 'DateTime'>
 }
     
 

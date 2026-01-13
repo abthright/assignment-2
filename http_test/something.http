@@ -1,0 +1,13 @@
+GET http://localhost:3000/api
+GET http://localhost:3000/api/users
+GET http://localhost:3000/api/bookings
+GET http://localhost:3000/api/tickets
+GET http://localhost:3000/api/events
+POST http://localhost:3000/api/events
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "devscale event",
+  "desc": "best event in town"
+}
