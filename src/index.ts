@@ -8,6 +8,10 @@ const app = new Hono();
 
 app.route("/api", api);
 
+app.get("/", (c)=>{
+  return c.text("move on to /api")
+})
+
 const server = serve(
   {
     fetch: app.fetch,
