@@ -8,7 +8,13 @@ const app = new Hono();
 // .basePath("/api");
 
 app.get("/", (c) => {
-  return c.text("sup");
+  return c.text(`
+  /api
+   |- /bookings
+   |- /events
+   |- /tickets
+   |- /users  
+  `);
 });
 
 const routes = app
