@@ -35,3 +35,12 @@ my spec
 - [ ] <sup>2</sup> Still don't know cara query yg best practice. di bookings endpoint coba implementasi query buat dapetin tipe tiket yang di cancel (vip ticket, etc), works but rasanya bertele tele. Kalau ga karena konsul ke gpt ga tau kalau di ORM bisa begini dan begitu buat query. masih banyak basic querying di ORM yang belum tau.
 - [ ] <sup>3</sup> Technically berhasil query create buat m-n relationship, tapi masih belum paham betul why it works. it's just works 🥲
 - [ ] <sup>4</sup> Gue coba implement frontend (as you can see on the other branch), tapi masih belum sukses. Ga tau terutama di cara bundling client / server. mau riset<sup>2</sup> lagi for next few days.
+
+
+# 🏂 Updates assignment 3
+- [ ] deployed on https://www.toleransi.space
+  Steps :
+  - [ ] create a config file in nginx/sites-available
+  - [ ] link it to nginx/sites-enabled (sudo ln -s from_a to_b) ln:links -s:symbolic
+  - [ ] (sudo nginx -t) checks configuraions file
+  - [ ] (sudo systemctl reload nginx) to run nginx with new config
