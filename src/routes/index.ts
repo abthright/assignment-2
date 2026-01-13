@@ -9,6 +9,8 @@ const app = new Hono();
 
 app.get("/", (c) => {
   return c.text(`
+  ~ Welcome to event api ~
+
   /api
    |- /bookings
    |- /events
